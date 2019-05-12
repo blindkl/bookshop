@@ -40,12 +40,19 @@ public class Main {
         int isbn = Integer.parseInt(scanner.nextLine());
         System.out.println("Podaj rok wydania książki");
         int year = Integer.parseInt(scanner.nextLine());
+
+//        bookList.add(new Book(Integer.parseInt(id), title, Integer.parseInt(isbn), Integer.parseInt(year)));
+//        for (:
+//             ) {
+//
+//        }
+        
         System.out.println("Nowa książka została dodana");
     }
 
-    static void deleteBookTitle() {
+    static void removeBookTitle() {
         System.out.println("Podaj tytuł książki");
-        String title = scanner.nextLine();
+//        String title = scanner.nextLine();
         System.out.println("Książka została usunięta");
     }
 
@@ -54,8 +61,27 @@ public class Main {
     }
 
     static void saveListOfBooksToCsvFile() {
+//        try (PrintWriter writer = new PrintWriter(new File("booklist.csv"))) {
+
+//            for (Book book : books) {
+//                StringBuilder build = new StringBuilder();
+//                build.append(book.getId());
+//                build.append(';');
+//                build.append(book.getTitle());
+//                build.append(';');
+//                build.append(book.getIsbn());
+//                build.append(';');
+//                build.append(book.getYear());
+//                build.append('\n');
+//                writer.write(build.toString());
+//            }
+//            System.out.println("Plik *booklist.csv* został zapisany");
+//
+//        } catch (FileNotFoundException e) {
+//            System.out.println("Plik nie został poprawnie zapisany");
+//        }
         System.out.println("Zapisz do pliku csv");
-            }
+    }
 
     static void exit() {
         System.out.println("Wyjdź");
@@ -78,7 +104,7 @@ public class Main {
                     addNewBook();
                     break;
                 case 3:
-                    deleteBookTitle();
+                    removeBookTitle();
                     break;
                 case 4:
                     editYearOfBook();

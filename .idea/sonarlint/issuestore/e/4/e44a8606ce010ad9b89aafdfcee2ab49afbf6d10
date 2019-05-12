@@ -1,0 +1,41 @@
+
+Tsquid:S1854*"8Remove this useless assignment to local variable "year".(ù€ý¨üÿÿÿÿ
+Esquid:S1481*")Remove this unused "year" local variable.(ù€ý¨üÿÿÿÿ
+gsquid:CommentedOutCodeLineB"<This block of commented-out lines of code should be removed.(ÐÚÜ”ýÿÿÿÿ
+gsquid:CommentedOutCodeLine0"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ
+bsquid:CommentedOutCodeLine7"<This block of commented-out lines of code should be removed.( ¸¸÷
+O
+squid:S106%"9Replace this use of System.out or System.err by a logger.(éâ›«
+T
+squid:S106)"9Replace this use of System.out or System.err by a logger.(Å´¯›ýÿÿÿÿ
+T
+squid:S106'"9Replace this use of System.out or System.err by a logger.(¬ìÌ‰ùÿÿÿÿ
+dsquid:S2095"HUse try-with-resources or close this "FileReader" in a "finally" clause.(á”¦„þÿÿÿÿ
+O
+squid:S1066"9Replace this use of System.out or System.err by a logger.(éâ›«
+T
+squid:S106S"9Replace this use of System.out or System.err by a logger.(Íÿë®þÿÿÿÿ
+Esquid:S1481(")Remove this unused "isbn" local variable.(ì– Óþÿÿÿÿ
+Asquid:S1481&"*Remove this unused "title" local variable.(ÚÆšé
+hsquid:S2095"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(ÀÏžðÿÿÿÿÿ
+gsquid:CommentedOutCodeLine,"<This block of commented-out lines of code should be removed.(­òôûÿÿÿÿ
+bsquid:CommentedOutCodeLineP"<This block of commented-out lines of code should be removed.(ŽæÊø
+N
+squid:S106W"9Replace this use of System.out or System.err by a logger.(ÀÙê
+[squid:S2147"DCombine this catch with the one at line 29, which has the same body.(ï­£Ä
+Tsquid:S1854("8Remove this useless assignment to local variable "isbn".(ì– Óþÿÿÿÿ
+O
+squid:S106<"9Replace this use of System.out or System.err by a logger.(®”œ±
+?squid:S1148 "#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(ñ—¸½úÿÿÿÿ
+N
+squid:S106["9Replace this use of System.out or System.err by a logger.(´¼Ü%
+Psquid:S1854&"9Remove this useless assignment to local variable "title".(ÚÆšé
+bsquid:CommentedOutCodeLine@"<This block of commented-out lines of code should be removed.(×µ•˜
+U"squid:SwitchLastCaseIsDefaultCheckc""Add a default case to this switch.(ÏÕ‚…ùÿÿÿÿ
+?squid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+O
+squid:S1068"9Replace this use of System.out or System.err by a logger.(Ì¬¡¼
+T
+squid:S1062"9Replace this use of System.out or System.err by a logger.(ô¼üÇÿÿÿÿÿ
