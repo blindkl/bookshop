@@ -1,27 +1,26 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
 public class Book {
 
-    public static void main(String[] a) {
-        try {
-            FileReader fileReader = new FileReader("C://Users/blind/Desktop/kurs/bookshop/src/main/resources/books.csv");
+    private String title;
+    private int isbn;
+    private int year;
 
-            BufferedReader bufferReader = new BufferedReader(fileReader);
 
-            String line;
+    public Book(int id, String title, int isbn, int year) {
+        this.title = title;
+        this.isbn = isbn;
+        this.year = year;
+    }
 
-            while ((line = bufferReader.readLine()) != null) {
-                System.out.println(line);
-            }
-            fileReader.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public String getTitle() {
+        return title;
+    }
+
+    public long getIsbn() {
+        return isbn;
+    }
+
+    public int getYear() {
+        return year;
     }
 
 }
