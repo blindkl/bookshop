@@ -1,13 +1,13 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     static Scanner scanner = new Scanner(System.in);
 
     static void showListOfBooks() {
+        List<Book> bookList = new ArrayList<>();
         try {
             FileReader fileReader = new FileReader("C://Users/blind/Desktop/kurs/bookshop/src/main/resources/books.csv");
 
@@ -17,6 +17,13 @@ public class Main {
 
             while ((line = bufferReader.readLine()) != null) {
                 System.out.println(line);
+                String[] split = line.split(";");
+                String id = split[0];
+                String title = split[1];
+                String isbn = split[2];
+                String year = split[3];
+                Book book = new Book(Integer.parseInt(id), title, Integer.parseInt(isbn), Integer.parseInt(year));
+                bookList.add(book);
             }
             fileReader.close();
         } catch (FileNotFoundException e) {
@@ -30,16 +37,16 @@ public class Main {
         System.out.println("Podaj tytuł książki");
         String title = scanner.nextLine();
         System.out.println("Podaj ISBN książki");
-        int isbn = scanner.nextInt();
+        int isbn = Integer.parseInt(scanner.nextLine());
         System.out.println("Podaj rok wydania książki");
-        int year = scanner.nextInt();
+        int year = Integer.parseInt(scanner.nextLine());
         System.out.println("Nowa książka została dodana");
-
-//        System.out.println("Dodanie nowej książki");
     }
 
-    static void deleteBookName() {
-        System.out.println("Usunięcie książki po nazwie");
+    static void deleteBookTitle() {
+        System.out.println("Podaj tytuł książki");
+        String title = scanner.nextLine();
+        System.out.println("Książka została usunięta");
     }
 
     static void editYearOfBook() {
@@ -47,8 +54,8 @@ public class Main {
     }
 
     static void saveListOfBooksToCsvFile() {
-        System.out.println("Zapisz listę książek do pliku csv");
-    }
+        System.out.println("Zapisz do pliku csv");
+            }
 
     static void exit() {
         System.out.println("Wyjdź");
@@ -62,7 +69,7 @@ public class Main {
         int numberOfOption;
         do {
             showMenu();
-            numberOfOption = scanner.nextInt();
+            numberOfOption = Integer.parseInt(scanner.nextLine());
             switch (numberOfOption) {
                 case 1:
                     showListOfBooks();
@@ -71,7 +78,7 @@ public class Main {
                     addNewBook();
                     break;
                 case 3:
-                    deleteBookName();
+                    deleteBookTitle();
                     break;
                 case 4:
                     editYearOfBook();
