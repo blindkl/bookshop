@@ -27,7 +27,7 @@ public class BookFunctionsTest {
     }
 
     private BookFunctions bookFunctions = new BookFunctions();
-
+// coś się wywaliło
     @Test
     public void test1() {
         Book book = bookFunctions.searchByIsbnStream(134494164, bookList);
