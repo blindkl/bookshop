@@ -1,6 +1,6 @@
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,10 +27,17 @@ public class BookFunctionsTest {
     }
 
     private BookFunctions bookFunctions = new BookFunctions();
+
 // coś się wywaliło
     @Test
     public void test1() {
         Book book = bookFunctions.searchByIsbnStream(134494164, bookList);
+        Assert.assertEquals("Clean Architecture", book.getTitle());
+    }
+
+    @Test
+    public void test1a() {
+        Book book = bookFunctions.searchByIsbn(134494164, bookList);
         Assert.assertEquals("Clean Architecture", book.getTitle());
     }
 
@@ -43,6 +50,15 @@ public class BookFunctionsTest {
         Assert.assertEquals("Clean Architecture", lastBook.getTitle());
     }
 
+//    @Test
+//    public void test2a() {
+//        List<Book> twoLastBooks = bookFunctions.getTwoLastBooks(bookList);
+//        Book preLastBook = twoLastBooks.get(0);
+//        Book lastBook = twoLastBooks.get(1);
+//        Assert.assertEquals("Head First Design Patterns", preLastBook.getTitle());
+//        Assert.assertEquals("Clean Architecture", lastBook.getTitle());
+//    }
+
     @Test
     public void test3() {
         Book earliestBook = bookFunctions.getEarliestPublishedStream(2001, bookList);
@@ -54,5 +70,34 @@ public class BookFunctionsTest {
         Book lastBook = bookFunctions.getLastPublishedStream(2018, bookList);
         Assert.assertEquals("Effective Java (3rd Edition)", lastBook.getYear());
     }
+
+//    @Test
+//    public void test5() {
+//
+//    }
+//
+//    @Test
+//    public void test6() {
+//
+//    }
+
+    @Test
+    public void test7() {
+        boolean isPublishedAfter2000 = bookFunctions.areBooksPublishedAfter2000Stream(bookList);
+        Assert.assertTrue(isPublishedAfter2000);
+    }
+
+    @Test
+    public void test8() {
+        int yearsMediana = bookFunctions.getYearMedianaStream(bookList);
+        Assert.assertEquals(2008, yearsMediana);
+    }
+
+    @Test
+    public void test9() {
+        boolean isPublishedBefore2003 = bookFunctions.isAnyPublishedBefore2003Stream(bookList);
+        Assert.assertTrue(isPublishedBefore2003);
+    }
+
 
 }

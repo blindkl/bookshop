@@ -47,7 +47,6 @@ public class BookFunctions {
                 .get();
     }
 
-
     // Zwróć najpóźniej wydana książkę.
     public Book getLastPublishedStream(int year, List<Book> allBooks) {
         return allBooks
@@ -72,23 +71,24 @@ public class BookFunctions {
 
 
     // Zwróć informacje o tym czy wszystkie książki w naszym katalogu są wydane po 2000 roku.
-//    public boolean areBooksPublishedAfter2000Stream(List<Book> allBooks) {
-//        long count = allBooks.stream().filter(book -> book.getYear() <= 2000).count();
-//        return allBooks.size() != count;
-//    }
+    public boolean areBooksPublishedAfter2000Stream(List<Book> allBooks) {
+        long count = allBooks.stream().filter(book -> book.getYear() >= 2000).count();
+        return allBooks.size() != count;
+    }
 
 
     // Zwróć średni rok wydania książki w naszym katalogu.
-//    public int getYearMedianaStream(List<Book> allBooks) {
-//        int sumOfYears = allBooks.stream().mapToInt(book -> book.getYear()).sum();
-//        return sumOfYears / allBooks.size();
-//    }
+    public int getYearMedianaStream(List<Book> allBooks) {
+        int sumOfYears = allBooks.stream().mapToInt(Book::getYear).sum();
+        return sumOfYears / allBooks.size();
+    }
 
 
     // Zwróć informacje o tym czy jakakolwiek książka w naszym katalogu jest wydana przed  2003 rokiem.
-//    public boolean isAnyPublishedBefore2003Stream(List<Book> allBooks) {
-//        return allBooks.stream().anyMatch(book -> book.getYear() < 2003);
-//    }
+    public boolean isAnyPublishedBefore2003Stream(List<Book> allBooks) {
+        return allBooks.stream()
+                .anyMatch(book -> book.getYear() < 2003);
+    }
 
 
 }
