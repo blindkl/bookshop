@@ -46,17 +46,25 @@ public class Main {
     static void removeBookTitle() {
         System.out.println("Podaj tytuł książki");
         String title = scanner.nextLine();
-        
-        for (Book titleToRemove : booksList) {
-            {
-                booksList.removeIf(titleToRemove);
+
+        Book bookToRemove = null;
+
+        for (Book book : booksList) {
+            if (book.getTitle().equals(title)) {
+                bookToRemove = book;
             }
-            System.out.println("Książka została usunięta");
         }
+
+        booksList.remove(bookToRemove);
+        System.out.println("Książka została usunięta");
     }
 
     static void editYearOfBook() {
-        System.out.println("Edycja roku wydania książki");
+//    year
+//    new year
+//        booksList.set()
+
+        System.out.println("Rok wydania książki został zedytowany");
     }
 
     static void saveListOfBooksToCsvFile() {
