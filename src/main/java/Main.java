@@ -46,7 +46,13 @@ public class Main {
     static void removeBookTitle() {
         System.out.println("Podaj tytuł książki");
         String title = scanner.nextLine();
-        System.out.println("Książka została usunięta");
+        
+        for (Book titleToRemove : booksList) {
+            {
+                booksList.removeIf(titleToRemove);
+            }
+            System.out.println("Książka została usunięta");
+        }
     }
 
     static void editYearOfBook() {
