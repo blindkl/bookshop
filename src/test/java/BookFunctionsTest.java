@@ -156,6 +156,7 @@ public class BookFunctionsTest {
     }
 
     //TODO
+//    test zadanie 10
 //    @Test
 //    public void test10a() {
 //
@@ -186,6 +187,27 @@ public class BookFunctionsTest {
         Assert.assertEquals("Patterns of Enterprise Application Architecture", thirdSample.getTitle());
         Assert.assertEquals("Head First Design Patterns", fourthSample.getTitle());
     }
+
+    //TODO
+//    test zadanie 12
+//    @Test
+//    public void test12() {
+//
+//    }
+
+    //TODO
+//    test zadanie 13
+//    @Test
+//    public void test12() {
+//
+//    }
+
+    //TODO
+//    test zadanie 14
+//    @Test
+//    public void test12() {
+//
+//    }
 
 
 }

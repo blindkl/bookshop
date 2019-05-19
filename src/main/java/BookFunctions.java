@@ -209,7 +209,7 @@ public class BookFunctions {
     }
 
     //    Zwróć mapę, która będzie miała klucz isbn i wartość obiekt Book (Map<String, Book>).
-    public Map<Integer, Book> getMapWithIsbnValue(List<Book> allBooks) {
+    public Map<Integer, Book> getMapWithIsbnValueStream(List<Book> allBooks) {
         Map<Integer, Book> map = allBooks
                 .stream()
                 .collect(Collectors.toMap(Book::getIsbn, Book -> Book));
@@ -217,7 +217,7 @@ public class BookFunctions {
     }
 
     //    Posortuj książki po roku wydania zaczynając od wydanej najpóźniej.
-    public List<Book> getReverseSortedBooksYear(int year, List<Book> allBooks) {
+    public List<Book> getReverseSortedBooksYearStream(int year, List<Book> allBooks) {
         return allBooks
                 .stream()
                 .sorted(Comparator.comparingInt(Book::getYear).reversed())
@@ -225,7 +225,7 @@ public class BookFunctions {
     }
 
     //    Posortuj książki po roku wydania zaczynając od wydanej najwcześniej.
-    public List<Book> getSortedBooksYear(int year, List<Book> allBooks) {
+    public List<Book> getSortedBooksYearStream(int year, List<Book> allBooks) {
         return allBooks
                 .stream()
                 .sorted(Comparator.comparingInt(Book::getYear))
