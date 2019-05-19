@@ -196,16 +196,17 @@ public class BookFunctionsTest {
 //    }
 
     //TODO
-//    test zadanie 13
+////    test zadanie 13
 //    @Test
-//    public void test12() {
-//
+//    public void test13() {
+//        List<Book> reverseSorted = bookFunctions.getReverseSortedBooksYearStream(bookList);
+//          Assert.assertEquals("Effective Java (3rd Edition)",);
 //    }
 
     //TODO
 //    test zadanie 14
 //    @Test
-//    public void test12() {
+//    public void test14() {
 //
 //    }
 
