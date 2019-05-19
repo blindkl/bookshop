@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class BookFunctionsTest {
 
@@ -50,40 +51,85 @@ public class BookFunctionsTest {
         Assert.assertEquals("Clean Architecture", lastBook.getTitle());
     }
 
-//    @Test
-//    public void test2a() {
-//        List<Book> twoLastBooks = bookFunctions.getTwoLastBooks(bookList);
-//        Book preLastBook = twoLastBooks.get(0);
-//        Book lastBook = twoLastBooks.get(1);
-//        Assert.assertEquals("Head First Design Patterns", preLastBook.getTitle());
-//        Assert.assertEquals("Clean Architecture", lastBook.getTitle());
-//    }
+    @Test
+    public void test2a() {
+        List<Book> twoLastBooks = bookFunctions.getTwoLast(bookList);
+        Book preLastBook = twoLastBooks.get(0);
+        Book lastBook = twoLastBooks.get(1);
+        Assert.assertEquals("Head First Design Patterns", preLastBook.getTitle());
+        Assert.assertEquals("Clean Architecture", lastBook.getTitle());
+    }
 
     @Test
     public void test3() {
         Book earliestBook = bookFunctions.getEarliestPublishedStream(2001, bookList);
-        Assert.assertEquals("Test Driven Development: By Example", earliestBook.getYear());
+        Assert.assertEquals("Test Driven Development: By Example", earliestBook.getTitle());
     }
+
+    @Test
+    public void test3Optional() {
+        Optional<Book> earliestBook = bookFunctions.getEarliestPublishedStream2(2001, new ArrayList<>());
+        Assert.assertEquals(false, earliestBook.isPresent());
+//        Assert.assertEquals("Test Driven Development: By Example", earliestBook.get().getTitle());
+    }
+
+//    @Test
+//    public void test3a() {
+//        Book earliestBook = bookFunctions.getEarliestPublished(2001, bookList);
+//        Assert.assertEquals("Test Driven Development: By Example", earliestBook.getTitle());
+//    }
 
     @Test
     public void test4() {
         Book lastBook = bookFunctions.getLastPublishedStream(2018, bookList);
-        Assert.assertEquals("Effective Java (3rd Edition)", lastBook.getYear());
+        Assert.assertEquals("Effective Java (3rd Edition)", lastBook.getTitle());
+    }
+
+    @Test
+    public void test4Optional() {
+        Optional<Book> lastBook = bookFunctions.getLastPublishedStream2(2018, new ArrayList<>());
+        Assert.assertEquals(false, lastBook.isPresent());
     }
 
 //    @Test
-//    public void test5() {
-//
+//    public void test4a() {
+//        Book lastBook = bookFunctions.getLastPublished(2018, bookList);
+//        Assert.assertEquals("Effective Java (3rd Edition)", lastBook.getTitle());
 //    }
-//
-//    @Test
-//    public void test6() {
-//
-//    }
+
+    @Test
+    public void test5() {
+        int yearsSum = bookFunctions.sumAllYearsStream(bookList);
+        Assert.assertEquals(12050, yearsSum);
+    }
+
+    @Test
+    public void test5a() {
+        int yearsSum = bookFunctions.sumAllYears(bookList);
+        Assert.assertEquals(12050, yearsSum);
+    }
+
+    @Test
+    public void test6() {
+        int booksAfter2007 = bookFunctions.getBooksPublishedAfter2007Stream(bookList);
+        Assert.assertEquals(3, booksAfter2007);
+    }
+
+    @Test
+    public void test6a() {
+        int booksAfter2007 = bookFunctions.getBooksPublishedAfter2007Stream(bookList);
+        Assert.assertEquals(3, booksAfter2007);
+    }
 
     @Test
     public void test7() {
         boolean isPublishedAfter2000 = bookFunctions.areBooksPublishedAfter2000Stream(bookList);
+        Assert.assertTrue(isPublishedAfter2000);
+    }
+
+    @Test
+    public void test7a() {
+        boolean isPublishedAfter2000 = bookFunctions.areBooksPublishedAfter2000(bookList);
         Assert.assertTrue(isPublishedAfter2000);
     }
 
@@ -94,8 +140,20 @@ public class BookFunctionsTest {
     }
 
     @Test
+    public void test8a() {
+        int yearsMediana = bookFunctions.getYearMediana(bookList);
+        Assert.assertEquals(2008, yearsMediana);
+    }
+
+    @Test
     public void test9() {
         boolean isPublishedBefore2003 = bookFunctions.isAnyPublishedBefore2003Stream(bookList);
+        Assert.assertTrue(isPublishedBefore2003);
+    }
+
+    @Test
+    public void test9a() {
+        boolean isPublishedBefore2003 = bookFunctions.isAnyPublishedBefore2003(bookList);
         Assert.assertTrue(isPublishedBefore2003);
     }
 
