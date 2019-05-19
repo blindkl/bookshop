@@ -60,11 +60,19 @@ public class Main {
     }
 
     static void editYearOfBook() {
-//    year
-//    new year
-//        booksList.set()
-
-        System.out.println("Rok wydania książki został zedytowany");
+//        System.out.println("Podaj tytuł książki");
+//        String title = scanner.nextLine();
+//
+//        Book bookToYearEdit = null;
+//
+//        for (Book book : booksList) {
+//            if (book.getTitle().equals(title)) {
+//                bookToYearEdit = book;
+//            }
+//        }
+//
+//        booksList.set(booksList.indexOf(bookToYearEdit);
+//        System.out.println("Rok wydania książki został zedytowany");
     }
 
     static void saveListOfBooksToCsvFile() {

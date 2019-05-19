@@ -29,7 +29,6 @@ public class BookFunctionsTest {
 
     private BookFunctions bookFunctions = new BookFunctions();
 
-// coś się wywaliło
     @Test
     public void test1() {
         Book book = bookFunctions.searchByIsbnStream(134494164, bookList);
@@ -70,14 +69,13 @@ public class BookFunctionsTest {
     public void test3Optional() {
         Optional<Book> earliestBook = bookFunctions.getEarliestPublishedStream2(2001, new ArrayList<>());
         Assert.assertEquals(false, earliestBook.isPresent());
-//        Assert.assertEquals("Test Driven Development: By Example", earliestBook.get().getTitle());
     }
 
-//    @Test
-//    public void test3a() {
-//        Book earliestBook = bookFunctions.getEarliestPublished(2001, bookList);
-//        Assert.assertEquals("Test Driven Development: By Example", earliestBook.getTitle());
-//    }
+    @Test
+    public void test3a() {
+        Book earliestBook = bookFunctions.getEarliestPublished(2001, bookList);
+        Assert.assertEquals("Test Driven Development: By Example", earliestBook.getTitle());
+    }
 
     @Test
     public void test4() {
@@ -91,11 +89,11 @@ public class BookFunctionsTest {
         Assert.assertEquals(false, lastBook.isPresent());
     }
 
-//    @Test
-//    public void test4a() {
-//        Book lastBook = bookFunctions.getLastPublished(2018, bookList);
-//        Assert.assertEquals("Effective Java (3rd Edition)", lastBook.getTitle());
-//    }
+    @Test
+    public void test4a() {
+        Book lastBook = bookFunctions.getLastPublished(2018, bookList);
+        Assert.assertEquals("Effective Java (3rd Edition)", lastBook.getTitle());
+    }
 
     @Test
     public void test5() {

@@ -55,14 +55,15 @@ public class BookFunctions {
         return book;
     }
 
-//    public Book getEarliestPublished(List<Book> allBooks) {
-//        int earliestYear = 0;
-//        for (Book book : allBooks) {
-//             earliestYear = book.getYear();
-//        }
-//        return earliestYear;
-//    }
-//    }
+    public Book getEarliestPublished(int year, List<Book> allBooks) {
+        Book earliestBook = allBooks.get(0);
+        for (Book book : allBooks) {
+            if (book.getYear() < earliestBook.getYear()) {
+                earliestBook = book;
+            }
+        }
+        return earliestBook;
+    }
 
     // Zwróć najpóźniej wydana książkę.
     public Book getLastPublishedStream(int year, List<Book> allBooks) {
@@ -79,9 +80,16 @@ public class BookFunctions {
         return book;
     }
 
-//    public Book getLastPublished(List<Book> allBooks) {
-//
-//    }
+    public Book getLastPublished(int year, List<Book> allBooks) {
+        Book lastPublishedBook = allBooks.get(0);
+        for (Book book : allBooks) {
+            if (book.getYear() > lastPublishedBook.getYear()) {
+                lastPublishedBook = book;
+            }
+        }
+        return lastPublishedBook;
+    }
+
 
     // Zwróć sumę lat wydania wszystkich książek.
     public int sumAllYearsStream(List<Book> allBooks) {
@@ -164,6 +172,27 @@ public class BookFunctions {
         return statement;
     }
 
+    // Zwróć wszystkie książki, których tytuł zaczyna się od litery “C” i były one wydane po 2007 roku
+    public List<Book> getBooksStartWithCPublishedAfter2007(List<Book> allBooks) {
+        List<Book> startWithC = new ArrayList<>();
+        for (Book book : allBooks) {
+            if ((book.getTitle().startsWith("C")) && ((book.getYear() > 2007))) {
+                startWithC.add(book);
+            }
+        }
+        return startWithC;
+    }
+
+    // Zwróć tytuły wszystkich książek, których rok jest podzielny przez 2
+    public List<Book> getBooksWithYearDevidedByTwo(List<Book> allBooks) {
+        List<Book> booksDevidedByTwo = new ArrayList<>();
+        for (Book book : allBooks) {
+            if (book.getYear() % 2 == 0) {
+                booksDevidedByTwo.add(book);
+            }
+        }
+        return booksDevidedByTwo;
+    }
 
 }
 
