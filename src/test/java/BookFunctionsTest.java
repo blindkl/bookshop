@@ -155,5 +155,37 @@ public class BookFunctionsTest {
         Assert.assertTrue(isPublishedBefore2003);
     }
 
+    //TODO
+//    @Test
+//    public void test10a() {
+//
+//    }
+
+    @Test
+    public void test11() {
+        List<Book> booksWithDivision = bookFunctions.getBooksWithYearDevideByTwoStream(bookList);
+        Book firstSample = booksWithDivision.get(0);
+        Book secondSample = booksWithDivision.get(1);
+        Book thirdSample = booksWithDivision.get(2);
+        Book fourthSample = booksWithDivision.get(3);
+        Assert.assertEquals("Clean Code", firstSample.getTitle());
+        Assert.assertEquals("Effective Java (3rd Edition)", secondSample.getTitle());
+        Assert.assertEquals("Patterns of Enterprise Application Architecture", thirdSample.getTitle());
+        Assert.assertEquals("Head First Design Patterns", fourthSample.getTitle());
+    }
+
+    @Test
+    public void test11a() {
+        List<Book> booksWithDivision = bookFunctions.getBooksWithYearDevidedByTwo(bookList);
+        Book firstSample = booksWithDivision.get(0);
+        Book secondSample = booksWithDivision.get(1);
+        Book thirdSample = booksWithDivision.get(2);
+        Book fourthSample = booksWithDivision.get(3);
+        Assert.assertEquals("Clean Code", firstSample.getTitle());
+        Assert.assertEquals("Effective Java (3rd Edition)", secondSample.getTitle());
+        Assert.assertEquals("Patterns of Enterprise Application Architecture", thirdSample.getTitle());
+        Assert.assertEquals("Head First Design Patterns", fourthSample.getTitle());
+    }
+
 
 }

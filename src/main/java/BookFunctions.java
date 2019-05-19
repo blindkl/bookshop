@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class BookFunctions {
@@ -173,6 +170,15 @@ public class BookFunctions {
     }
 
     // Zwróć wszystkie książki, których tytuł zaczyna się od litery “C” i były one wydane po 2007 roku
+
+    public List<Book> getBooksStartWithCPublishedAfter2007Stream(List<Book> allBooks) {
+        return allBooks
+                .stream()
+                .filter(book -> book.getTitle().startsWith("C"))
+                .filter(book -> book.getYear() > 2007)
+                .collect(Collectors.toList());
+    }
+
     public List<Book> getBooksStartWithCPublishedAfter2007(List<Book> allBooks) {
         List<Book> startWithC = new ArrayList<>();
         for (Book book : allBooks) {
@@ -184,15 +190,53 @@ public class BookFunctions {
     }
 
     // Zwróć tytuły wszystkich książek, których rok jest podzielny przez 2
+
+    public List<Book> getBooksWithYearDevideByTwoStream(List<Book> allBooks) {
+        return allBooks
+                .stream()
+                .filter(book -> book.getYear() % 2 == 0)
+                .collect(Collectors.toList());
+    }
+
     public List<Book> getBooksWithYearDevidedByTwo(List<Book> allBooks) {
-        List<Book> booksDevidedByTwo = new ArrayList<>();
+        List<Book> booksWithYearDevidedByTwo = new ArrayList<>();
         for (Book book : allBooks) {
             if (book.getYear() % 2 == 0) {
-                booksDevidedByTwo.add(book);
+                booksWithYearDevidedByTwo.add(book);
             }
         }
-        return booksDevidedByTwo;
+        return booksWithYearDevidedByTwo;
     }
+
+    //    Zwróć mapę, która będzie miała klucz isbn i wartość obiekt Book (Map<String, Book>).
+//    public Map<Integer, Book> getMapWithIsbnValue(List<Book> allBooks) {
+//        return allBooks
+//                .stream()
+//                .filter()
+//    }
+
+    //    Posortuj książki po roku wydania zaczynając od wydanej najpóźniej.
+    public List<Book> getReverseSortedBooksYear(int year, List<Book> allBooks) {
+        return allBooks
+                .stream()
+                .sorted(Comparator.comparingInt(Book::getYear).reversed())
+                .collect(Collectors.toList());
+    }
+
+    //    Posortuj książki po roku wydania zaczynając od wydanej najwcześniej.
+    public List<Book> getSortedBooksYear(int year, List<Book> allBooks) {
+        return allBooks
+                .stream()
+                .sorted(Comparator.comparingInt(Book::getYear))
+                .collect(Collectors.toList());
+    }
+
+    //    Podziel listę książek na 3 listy po 2 książki i zwróć z metody. (*) (bez streama)
+
+    //    Pogrupuj książki po roku wydania. Metoda powinna zwrócić Map<Integer, List<Book>> gdzie kluczem jest rok wydania a wartością lista książek wydana w tym roku. (*)
+
+    //    Podziel książki na te wydane po 2009 roku i pozostałe. Metoda powinna zwrócić Map<Boolean, List<Book>> gdzie kluczem jest boolean oznaczający czy została wydana po 2009 a wartością będą listy książek. (*)
+
 
 }
 
