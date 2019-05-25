@@ -29,4 +29,17 @@ public class Book {
         return year;
     }
 
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", isbn=" + isbn +
+                ", year=" + year +
+                '}';
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
 }

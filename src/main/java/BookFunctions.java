@@ -217,7 +217,7 @@ public class BookFunctions {
     }
 
     //    Posortuj książki po roku wydania zaczynając od wydanej najpóźniej.
-    public List<Book> getReverseSortedBooksYearStream(int year, List<Book> allBooks) {
+    public List<Book> getReverseSortedBooksYearStream(List<Book> allBooks) {
         return allBooks
                 .stream()
                 .sorted(Comparator.comparingInt(Book::getYear).reversed())
@@ -225,7 +225,7 @@ public class BookFunctions {
     }
 
     //    Posortuj książki po roku wydania zaczynając od wydanej najwcześniej.
-    public List<Book> getSortedBooksYearStream(int year, List<Book> allBooks) {
+    public List<Book> getSortedBooksYearStream(List<Book> allBooks) {
         return allBooks
                 .stream()
                 .sorted(Comparator.comparingInt(Book::getYear))

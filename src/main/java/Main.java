@@ -64,20 +64,48 @@ public class Main {
     }
 
     static void editYearOfBook() {
-//        System.out.println("Podaj tytuł książki");
-//        String title = scanner.nextLine();
+        System.out.println("Podaj tytuł książki, której datę wydania chcesz edytować");
+        String title = scanner.nextLine();
+
+        Book bookToYearEdit = null;
+
+        for (Book book : booksList) {
+            if (book.getTitle().equals(title)) {
+                bookToYearEdit = book;
+            }
+        }
+
+
+        System.out.println("Podaj nowy rok wydania");
+        int newNumber = Integer.parseInt(scanner.nextLine());
+
+        for (Book book : booksList) {
+            if (book.getYear() == number) {
+                book.setYear(newNumber));
+            }
+        }
+
+        System.out.println("Data wydania została zedytowana");
+
+    }
+//        System.out.println("Podaj tytuł książki, której datę wydania chcesz edytować:");
+//        String editYear = "";
+//        for (Book book : booksList) {
+//            editYear == book.getTitle()
+//        }
+//        System.out.println(editYear);
+//        int number = Integer.parseInt(scanner.nextLine());
 //
-//        Book bookToYearEdit = null;
+//        System.out.println("Podaj nowy rok wydania");
+//        String newNumber = scanner.nextLine();
 //
 //        for (Book book : booksList) {
-//            if (book.getTitle().equals(title)) {
-//                bookToYearEdit = book;
+//            if (book.getYear() == number) {
+//                book.setYear(Integer.parseInt(newNumber));
 //            }
 //        }
-//
-//        booksList.set(booksList.indexOf(bookToYearEdit);
-//        System.out.println("Rok wydania książki został zmieniony");
-    }
+//        System.out.println(booksList);
+
 
     static void saveListOfBooksToCsvFile() {
         try (PrintWriter writer = new PrintWriter(new File("C://Users/blind/Desktop/kurs/bookshop/src/main/resources/bookslist.csv"))) {
@@ -149,11 +177,11 @@ public class Main {
 
 
     static void sortOfBooks() {
-//        System.out.println(bookFunctions.getSortedBooksYearStream(booksList));
+        System.out.println(bookFunctions.getSortedBooksYearStream(booksList));
     }
 
     static void reverseSortOfBooks() {
-//        System.out.println(bookFunctions.getReverseSortedBooksYearStream(booksList));
+        System.out.println(bookFunctions.getReverseSortedBooksYearStream(booksList));
     }
 
     static void booksAfter2007() {
@@ -187,7 +215,7 @@ public class Main {
                 "\n 7. Wyświetl listę autorów" +
                 "\n 8. Sortowanie po roku wydania rosnąco" +
                 "\n 9. Sortowanie po roku wydania malejąco" +
-                "\n 10. Książki wydane po 2007 roku" +
+                "\n 10. Liczba książek wydanych po 2007 roku" +
                 "\n 11. Wyświetl wszystkie kategorie" +
                 "\n 12. Wyświetl wszystkich autorów" +
                 "\n 13. Usunięcie kategorii po identyfikatorze" +
@@ -249,7 +277,6 @@ public class Main {
         }
         while (numberOfOption != 14);
     }
-
 
 
     public static void main(String[] args) {
