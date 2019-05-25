@@ -185,14 +185,6 @@ public class Main {
 
     }
 
-    static void showListOfBooksYearTitleIsbn() {
-
-    }
-
-    static void showListOfBooksIsbnYearTitle() {
-
-    }
-
 
     static void exit() {
         System.out.println("Wyjdź");
