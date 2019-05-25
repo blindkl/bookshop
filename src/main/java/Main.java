@@ -75,37 +75,22 @@ public class Main {
             }
         }
 
+        System.out.println(bookToYearEdit);
+        System.out.println("Podaj obecny rok wydania");
+        int year = Integer.parseInt(scanner.nextLine());
 
         System.out.println("Podaj nowy rok wydania");
-        int newNumber = Integer.parseInt(scanner.nextLine());
+        int newYear = Integer.parseInt(scanner.nextLine());
 
         for (Book book : booksList) {
-            if (book.getYear() == number) {
-                book.setYear(newNumber));
+            if (book.getYear() == year) {
+                book.setYear(newYear);
             }
         }
 
         System.out.println("Data wydania została zedytowana");
 
     }
-//        System.out.println("Podaj tytuł książki, której datę wydania chcesz edytować:");
-//        String editYear = "";
-//        for (Book book : booksList) {
-//            editYear == book.getTitle()
-//        }
-//        System.out.println(editYear);
-//        int number = Integer.parseInt(scanner.nextLine());
-//
-//        System.out.println("Podaj nowy rok wydania");
-//        String newNumber = scanner.nextLine();
-//
-//        for (Book book : booksList) {
-//            if (book.getYear() == number) {
-//                book.setYear(Integer.parseInt(newNumber));
-//            }
-//        }
-//        System.out.println(booksList);
-
 
     static void saveListOfBooksToCsvFile() {
         try (PrintWriter writer = new PrintWriter(new File("C://Users/blind/Desktop/kurs/bookshop/src/main/resources/bookslist.csv"))) {
@@ -197,6 +182,14 @@ public class Main {
     }
 
     static void removeCategoryUsingId() {
+
+    }
+
+    static void showListOfBooksYearTitleIsbn() {
+
+    }
+
+    static void showListOfBooksIsbnYearTitle() {
 
     }
 
