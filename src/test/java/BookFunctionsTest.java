@@ -68,30 +68,30 @@ public class BookFunctionsTest {
     @Test
     public void test3Optional() {
         Optional<Book> earliestBook = bookFunctions.getEarliestPublishedStream2(2001, new ArrayList<>());
-        Assert.assertEquals(false, earliestBook.isPresent());
+        Assert.assertFalse(earliestBook.isPresent());
     }
 
     @Test
     public void test3a() {
-        Book earliestBook = bookFunctions.getEarliestPublished(2001, bookList);
+        Book earliestBook = bookFunctions.getEarliestPublished(bookList);
         Assert.assertEquals("Test Driven Development: By Example", earliestBook.getTitle());
     }
 
     @Test
     public void test4() {
-        Book lastBook = bookFunctions.getLastPublishedStream(2018, bookList);
+        Book lastBook = bookFunctions.getLastPublishedStream(bookList);
         Assert.assertEquals("Effective Java (3rd Edition)", lastBook.getTitle());
     }
 
     @Test
     public void test4Optional() {
-        Optional<Book> lastBook = bookFunctions.getLastPublishedStream2(2018, new ArrayList<>());
+        Optional<Book> lastBook = bookFunctions.getLastPublishedStream2(new ArrayList<>());
         Assert.assertEquals(false, lastBook.isPresent());
     }
 
     @Test
     public void test4a() {
-        Book lastBook = bookFunctions.getLastPublished(2018, bookList);
+        Book lastBook = bookFunctions.getLastPublished(bookList);
         Assert.assertEquals("Effective Java (3rd Edition)", lastBook.getTitle());
     }
 

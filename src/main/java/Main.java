@@ -6,6 +6,10 @@ import java.util.Scanner;
 public class Main {
     static Scanner scanner = new Scanner(System.in);
     static List<Book> booksList = new ArrayList<>();
+    static List<Category> categoriesList = new ArrayList<>();
+    static List<Author> authorsList = new ArrayList<>();
+    static BookFunctions bookFunctions = new BookFunctions();
+
 
     static void showListOfBooks() {
 
@@ -25,7 +29,7 @@ public class Main {
                 booksList.add(book);
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("Nie znaleziono pliku");
         } catch (IOException e) {
             System.out.println("Nie znaleziono pliku");
         }
@@ -72,7 +76,7 @@ public class Main {
 //        }
 //
 //        booksList.set(booksList.indexOf(bookToYearEdit);
-//        System.out.println("Rok wydania książki został zedytowany");
+//        System.out.println("Rok wydania książki został zmieniony");
     }
 
     static void saveListOfBooksToCsvFile() {
@@ -97,6 +101,78 @@ public class Main {
         }
     }
 
+    static void categories() {
+
+        try (FileReader fileReader = new FileReader("C://Users/blind/Desktop/kurs/bookshop/src/main/resources/categories.csv")) {
+
+            BufferedReader bufferReader = new BufferedReader(fileReader);
+
+            String line;
+
+            while ((line = bufferReader.readLine()) != null) {
+                String[] split = line.split(";");
+                String id = split[0];
+                String categoryName = split[1];
+                String priority = split[2];
+                Category category = new Category(Integer.parseInt(id), categoryName, Integer.parseInt(priority));
+                categoriesList.add(category);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Nie znaleziono pliku");
+        } catch (IOException e) {
+            System.out.println("Nie wczytano pliku");
+        }
+    }
+
+    static void authors() {
+
+        try (FileReader fileReader = new FileReader("C://Users/blind/Desktop/kurs/bookshop/src/main/resources/authors.csv")) {
+
+            BufferedReader bufferReader = new BufferedReader(fileReader);
+
+            String line;
+
+            while ((line = bufferReader.readLine()) != null) {
+                String[] split = line.split(";");
+                String id = split[0];
+                String name = split[1];
+                String age = split[2];
+                Author author = new Author(Integer.parseInt(id), name, Integer.parseInt(age));
+                authorsList.add(author);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Nie znaleziono pliku");
+        } catch (IOException e) {
+            System.out.println("Nie wczytano pliku");
+        }
+    }
+
+
+    static void sortOfBooks() {
+//        System.out.println(bookFunctions.getSortedBooksYearStream(booksList));
+    }
+
+    static void reverseSortOfBooks() {
+//        System.out.println(bookFunctions.getReverseSortedBooksYearStream(booksList));
+    }
+
+    static void booksAfter2007() {
+        System.out.println(bookFunctions.getBooksPublishedAfter2007Stream(booksList));
+    }
+
+    static void showAllCategories() {
+
+    }
+
+    static void showAllAuthors() {
+
+    }
+
+    static void removeCategoryUsingId() {
+
+    }
+
+
     static void exit() {
         System.out.println("Wyjdź");
     }
@@ -107,11 +183,21 @@ public class Main {
                 "\n 3. Usunięcie książki po nazwie " +
                 "\n 4. Edycja roku wydania książki " +
                 "\n 5. Zapisz listę książek do pliku csv" +
-                "\n 6. Wyjdź ");
+                "\n 6. Wyświetl listę kategorii" +
+                "\n 7. Wyświetl listę autorów" +
+                "\n 8. Sortowanie po roku wydania rosnąco" +
+                "\n 9. Sortowanie po roku wydania malejąco" +
+                "\n 10. Książki wydane po 2007 roku" +
+                "\n 11. Wyświetl wszystkie kategorie" +
+                "\n 12. Wyświetl wszystkich autorów" +
+                "\n 13. Usunięcie kategorii po identyfikatorze" +
+                "\n 14. Wyjdź ");
     }
 
     static void menu() {
         showListOfBooks();
+        authors();
+        categories();
         int numberOfOption;
         do {
             showMenu();
@@ -133,12 +219,38 @@ public class Main {
                     saveListOfBooksToCsvFile();
                     break;
                 case 6:
+                    System.out.println(categoriesList);
+                    break;
+                case 7:
+                    System.out.println(authorsList);
+                    break;
+                case 8:
+                    sortOfBooks();
+                    break;
+                case 9:
+                    reverseSortOfBooks();
+                    break;
+                case 10:
+                    booksAfter2007();
+                    break;
+                case 11:
+                    showAllCategories();
+                    break;
+                case 12:
+                    showAllAuthors();
+                    break;
+                case 13:
+                    removeCategoryUsingId();
+                    break;
+                case 14:
                     exit();
                     break;
             }
         }
-        while (numberOfOption != 6);
+        while (numberOfOption != 14);
     }
+
+
 
     public static void main(String[] args) {
 

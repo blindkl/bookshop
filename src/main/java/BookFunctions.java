@@ -52,7 +52,7 @@ public class BookFunctions {
         return book;
     }
 
-    public Book getEarliestPublished(int year, List<Book> allBooks) {
+    public Book getEarliestPublished(List<Book> allBooks) {
         Book earliestBook = allBooks.get(0);
         for (Book book : allBooks) {
             if (book.getYear() < earliestBook.getYear()) {
@@ -63,21 +63,21 @@ public class BookFunctions {
     }
 
     // Zwróć najpóźniej wydana książkę.
-    public Book getLastPublishedStream(int year, List<Book> allBooks) {
+    public Book getLastPublishedStream(List<Book> allBooks) {
         return allBooks
                 .stream()
                 .max(Comparator.comparingInt(Book::getYear))
                 .get();
     }
 
-    public Optional<Book> getLastPublishedStream2(int year, List<Book> allBooks) {
+    public Optional<Book> getLastPublishedStream2(List<Book> allBooks) {
         Optional<Book> book = allBooks
                 .stream()
                 .max(Comparator.comparingInt(Book::getYear));
         return book;
     }
 
-    public Book getLastPublished(int year, List<Book> allBooks) {
+    public Book getLastPublished(List<Book> allBooks) {
         Book lastPublishedBook = allBooks.get(0);
         for (Book book : allBooks) {
             if (book.getYear() > lastPublishedBook.getYear()) {
@@ -131,7 +131,7 @@ public class BookFunctions {
         boolean booksAfter2000 = true;
         for (Book book : allBooks) {
             if (book.getYear() <= 2000) {
-                booksAfter2000 = false;
+                return false;
             }
         }
         return booksAfter2000;
