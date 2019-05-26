@@ -1,9 +1,10 @@
+import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.*;
-import java.util.Arrays;
-
-import static org.junit.Assert.assertEquals;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class ReadFromFilesTest {
 
@@ -30,6 +31,9 @@ public class ReadFromFilesTest {
         } catch (IOException e) {
             System.out.println("Nie znaleziono pliku");
         }
+
+//        Assert.assertEquals("Head First Design Patterns");
+//        Assert.assertEquals("Clean Architecture"());
     }
 
     @Test

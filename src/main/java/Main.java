@@ -110,33 +110,50 @@ public class Main {
 
     }
 
-    static void removeCategoryUsingId() {
+    static void removeCategoryById() {
 
     }
 
-    static void showAllBooksByAuthor() {
-//        List<Book> showAllBooksByAuthor ();
-//        System.out.println("Wybierz autora:");
-//        String authorToShow = "";
-//
-//        for (Author author : authors) {
-//            authorToShow += author.getId() + ". " + author.getName() + "\n";
-//        }
-//        System.out.println(authorToShow);
-//        int authorNumber = Integer.parseInt(scanner.nextLine());
-//
-//        List<Book> allBooksByAuthor = new ArrayList<>();
-//        for (Book book : booksList) {
-//            if (authorNumber == book.getAuthor().getId()) {
-//                allBooksByAuthor.add(book);
-//            }
-//        }
-//        System.out.println(allBooksByAuthor);
-//        return allBooksByAuthor;
+    static List<Book> showAllBooksByAuthor() {
+
+        System.out.println("Wybierz autora:");
+        String authorToShow = "";
+
+        for (Author author : authorsList) {
+            authorToShow += author.getId() + ". " + author.getName() + "\n";
+        }
+        System.out.println(authorToShow);
+        int authorNumber = Integer.parseInt(scanner.nextLine());
+
+        List<Book> allBooksByAuthor = new ArrayList<>();
+        for (Book book : booksList) {
+            if (authorNumber == book.getId()) {
+                allBooksByAuthor.add(book);
+            }
+        }
+        System.out.println(allBooksByAuthor);
+        return allBooksByAuthor;
 
     }
 
     static void saveListOfCategories() {
+        try (PrintWriter writer = new PrintWriter(new File("C://Users/blind/Desktop/kurs/bookshop/src/main/resources/categorieslist.csv"))) {
+
+            for (Category category : categoriesList) {
+                StringBuilder build = new StringBuilder();
+                build.append(category.getId());
+                build.append(';');
+                build.append(category.getCategoryName());
+                build.append(';');
+                build.append(category.getPriority());
+                build.append('\n');
+                writer.write(build.toString());
+            }
+            System.out.println("Plik *categorieslist.csv* został zapisany");
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Plik nie został poprawnie zapisany");
+        }
 
     }
 
@@ -215,7 +232,7 @@ public class Main {
                     showAllAuthors();
                     break;
                 case 13:
-                    removeCategoryUsingId();
+                    removeCategoryById();
                     break;
                 case 14:
                     showAllBooksByAuthor();
