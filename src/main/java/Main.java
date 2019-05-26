@@ -11,30 +11,6 @@ public class Main {
     static BookFunctions bookFunctions = new BookFunctions();
 
 
-    static void showListOfBooks() {
-
-        try (FileReader fileReader = new FileReader("C://Users/blind/Desktop/kurs/bookshop/src/main/resources/books.csv")) {
-
-            BufferedReader bufferReader = new BufferedReader(fileReader);
-
-            String line;
-
-            while ((line = bufferReader.readLine()) != null) {
-                String[] split = line.split(";");
-                String id = split[0];
-                String title = split[1];
-                String isbn = split[2];
-                String year = split[3];
-                Book book = new Book(Integer.parseInt(id), title, Integer.parseInt(isbn), Integer.parseInt(year));
-                booksList.add(book);
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("Nie znaleziono pliku");
-        } catch (IOException e) {
-            System.out.println("Nie znaleziono pliku");
-        }
-    }
-
     static void addNewBook() {
         System.out.println("Podaj tytuł książki");
         String title = scanner.nextLine();
@@ -114,53 +90,6 @@ public class Main {
         }
     }
 
-    static void categories() {
-
-        try (FileReader fileReader = new FileReader("C://Users/blind/Desktop/kurs/bookshop/src/main/resources/categories.csv")) {
-
-            BufferedReader bufferReader = new BufferedReader(fileReader);
-
-            String line;
-
-            while ((line = bufferReader.readLine()) != null) {
-                String[] split = line.split(";");
-                String id = split[0];
-                String categoryName = split[1];
-                String priority = split[2];
-                Category category = new Category(Integer.parseInt(id), categoryName, Integer.parseInt(priority));
-                categoriesList.add(category);
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("Nie znaleziono pliku");
-        } catch (IOException e) {
-            System.out.println("Nie wczytano pliku");
-        }
-    }
-
-    static void authors() {
-
-        try (FileReader fileReader = new FileReader("C://Users/blind/Desktop/kurs/bookshop/src/main/resources/authors.csv")) {
-
-            BufferedReader bufferReader = new BufferedReader(fileReader);
-
-            String line;
-
-            while ((line = bufferReader.readLine()) != null) {
-                String[] split = line.split(";");
-                String id = split[0];
-                String name = split[1];
-                String age = split[2];
-                Author author = new Author(Integer.parseInt(id), name, Integer.parseInt(age));
-                authorsList.add(author);
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("Nie znaleziono pliku");
-        } catch (IOException e) {
-            System.out.println("Nie wczytano pliku");
-        }
-    }
-
-
     static void sortOfBooks() {
         System.out.println(bookFunctions.getSortedBooksYearStream(booksList));
     }
@@ -185,6 +114,36 @@ public class Main {
 
     }
 
+    static void showAllBooksByAuthor() {
+//        List<Book> showAllBooksByAuthor ();
+//        System.out.println("Wybierz autora:");
+//        String authorToShow = "";
+//
+//        for (Author author : authors) {
+//            authorToShow += author.getId() + ". " + author.getName() + "\n";
+//        }
+//        System.out.println(authorToShow);
+//        int authorNumber = Integer.parseInt(scanner.nextLine());
+//
+//        List<Book> allBooksByAuthor = new ArrayList<>();
+//        for (Book book : booksList) {
+//            if (authorNumber == book.getAuthor().getId()) {
+//                allBooksByAuthor.add(book);
+//            }
+//        }
+//        System.out.println(allBooksByAuthor);
+//        return allBooksByAuthor;
+
+    }
+
+    static void saveListOfCategories() {
+
+    }
+
+    static void save() {
+
+    }
+
 
     static void exit() {
         System.out.println("Wyjdź");
@@ -204,13 +163,16 @@ public class Main {
                 "\n 11. Wyświetl wszystkie kategorie" +
                 "\n 12. Wyświetl wszystkich autorów" +
                 "\n 13. Usunięcie kategorii po identyfikatorze" +
-                "\n 14. Wyjdź ");
+                "\n 14. Wyświetlanie książek po autorze" +
+                "\n 15. Zapisz listę kategorii" +
+                "\n 16. Zapisz stan" +
+                "\n 17. Wyjdź ");
     }
 
     static void menu() {
-        showListOfBooks();
-        authors();
-        categories();
+        ListOfBooks.showListOfBooks();
+        ListOfAuthors.authors();
+        ListOfCategories.categories();
         int numberOfOption;
         do {
             showMenu();
@@ -256,11 +218,19 @@ public class Main {
                     removeCategoryUsingId();
                     break;
                 case 14:
+                    showAllBooksByAuthor();
+                    break;
+                case 15:
+                    saveListOfCategories();
+                case 16:
+                    save();
+                    break;
+                case 17:
                     exit();
                     break;
             }
         }
-        while (numberOfOption != 14);
+        while (numberOfOption != 17);
     }
 
 
