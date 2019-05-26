@@ -1,5 +1,5 @@
 public class Category {
-    private int id;
+    private Integer id;
     private String categoryName;
     private int priority;
 
@@ -9,7 +9,7 @@ public class Category {
         this.priority = priority;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

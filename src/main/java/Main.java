@@ -111,7 +111,19 @@ public class Main {
     }
 
     static void removeCategoryById() {
+        System.out.println("Podaj ID kategorii");
+        Integer id = Integer.valueOf(scanner.nextLine());
 
+        Category categoryToRemove = null;
+
+        for (Category category : categoriesList) {
+            if (category.getId().equals(id)) {
+                categoryToRemove = category;
+            }
+        }
+
+        categoriesList.remove(categoryToRemove);
+        System.out.println("Kategoria została usunięta");
     }
 
     static List<Book> showAllBooksByAuthor() {

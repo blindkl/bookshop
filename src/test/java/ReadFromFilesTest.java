@@ -9,8 +9,10 @@ public class ReadFromFilesTest {
     public void ReadFromFileBooksCsvTest() {
 
         List<Book> books = ListOfBooks.showListOfBooks();
-        Assert.assertEquals("1;Clean Code;132350882;2008;T;1;3");
-
+        C://Users/blind/Desktop/kurs/bookshop/src/test/resources/bookstest.csv
+        Assert.assertEquals("Clean Code", books.get(0).getTitle());
+        Assert.assertEquals("132350882", books.get(0).getIsbn());
+        Assert.assertEquals(2008, books.get(0).getYear());
     }
 
     @Test
